@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M360 Brasil × Mzen · Proposta de Presença Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:ital,wght,wdth@0,100..900,62..125;1,100..900,62..125&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F2;
+  --ink:#0F2433;
+  --ink-soft:#3D5466;
+  --navy:#0E2233;
+  --navy-2:#16384F;
+  --lapacho:#D8456B;
+  --lapacho-soft:#F7E3E9;
+  --rio:#1C6E78;
+  --rio-soft:#E2EFF0;
+  --gold:#B9892F;
+  --gold-soft:#F5EBD7;
+  --line:#E3DCCF;
+  --card:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Archivo',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px;}
+.eyebrow{
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  color:var(--lapacho);display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--lapacho);}
+.eyebrow.rio{color:var(--rio);}
+.eyebrow.rio::before{background:var(--rio);}
+.eyebrow.gold{color:var(--gold);}
+.eyebrow.gold::before{background:var(--gold);}
+h2{
+  font-family:'Instrument Serif',serif;font-weight:400;
+  font-size:clamp(30px,4.4vw,44px);line-height:1.12;letter-spacing:-.01em;margin-bottom:18px;
+}
+h2 em{font-style:italic;color:var(--lapacho);}
+h3{font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em;}
+p.lead{font-size:18px;color:var(--ink-soft);max-width:62ch;}
+section{padding:76px 0;}
+section + section{border-top:1px solid var(--line);}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:linear-gradient(168deg,#0B1C2A 0%, #0E2233 55%, #14303F 100%);
+  color:#F4EFE6;padding:0;position:relative;overflow:hidden;
+}
+.hero .wrap{padding-top:64px;padding-bottom:0;position:relative;z-index:2;}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+.hero-tags span{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  border:1px solid rgba(244,239,230,.28);border-radius:999px;padding:6px 14px;color:#D9D2C4;
+}
+.hero h1{
+  font-family:'Instrument Serif',serif;font-weight:400;
+  font-size:clamp(40px,6.4vw,68px);line-height:1.06;letter-spacing:-.015em;max-width:18ch;
+}
+.hero h1 em{font-style:italic;color:#F08CA6;}
+.hero p.sub{margin-top:20px;max-width:56ch;color:#B9C5CC;font-size:17px;}
+.hero-meta{
+  display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:22px;
+  border-top:1px solid rgba(244,239,230,.16);font-size:13px;color:#9FB0BA;
+}
+.hero-meta b{display:block;color:#F4EFE6;font-size:14px;font-weight:600;}
+.bridge{display:block;width:100%;height:auto;margin-top:-8px;position:relative;z-index:1;}
+.route-dash{stroke-dasharray:7 9;animation:routeflow 2.6s linear infinite;}
+@keyframes routeflow{to{stroke-dashoffset:-160;}}
+.pulse{animation:pulse 2.4s ease-in-out infinite;transform-origin:center;}
+@keyframes pulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+@media (prefers-reduced-motion:reduce){.route-dash,.pulse{animation:none;}}
+
+/* ---------- GENERIC CARDS ---------- */
+.grid{display:grid;gap:18px;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr;}}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;
+}
+.card .knum{
+  font-family:'Instrument Serif',serif;font-size:40px;line-height:1;color:var(--navy);
+}
+.card .knum.pink{color:var(--lapacho);}
+.card .knum.rio{color:var(--rio);}
+.card .knum.gold{color:var(--gold);}
+.card .klabel{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-top:6px;}
+.card p{font-size:14.5px;color:var(--ink-soft);margin-top:10px;}
+.src{font-size:11.5px;color:#9AA7AE;margin-top:10px;}
+
+/* ---------- DARK STRIP ---------- */
+.strip{
+  background:var(--navy);color:#EDE7DA;border-radius:18px;padding:30px 30px;
+  display:flex;gap:24px;align-items:flex-start;margin-top:30px;
+}
+.strip svg{flex:0 0 auto;}
+.strip h3{color:#fff;}
+.strip p{color:#B9C5CC;font-size:15px;}
+@media(max-width:700px){.strip{flex-direction:column;}}
+
+/* ---------- DIAGNOSIS LIST ---------- */
+.diag{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);margin-top:26px;}
+.diag-row{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:20px 22px;border-bottom:1px solid var(--line);}
+.diag-row:last-child{border-bottom:none;}
+.diag-row .ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--lapacho-soft);}
+.diag-row h4{font-size:15.5px;font-weight:700;}
+.diag-row p{font-size:14px;color:var(--ink-soft);margin-top:3px;}
+
+/* ---------- COMPETITOR TABLE ---------- */
+.comp{width:100%;border-collapse:collapse;margin-top:24px;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.comp th{
+  background:var(--navy);color:#EDE7DA;text-align:left;padding:13px 16px;font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+}
+.comp td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft);}
+.comp td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+.comp tr:last-child td{border-bottom:none;}
+.tagp{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;border-radius:999px;padding:3px 10px;margin:2px 2px 0 0;}
+.tagp.a{background:var(--rio-soft);color:var(--rio);}
+.tagp.b{background:var(--gold-soft);color:#8E6A20;}
+.tagp.c{background:var(--lapacho-soft);color:var(--lapacho);}
+.scroll-x{overflow-x:auto;}
+
+/* ---------- QUADRANT ---------- */
+.quad-note{font-size:13px;color:var(--ink-soft);margin-top:10px;max-width:60ch;}
+
+/* ---------- PHASES ---------- */
+.phase{display:grid;grid-template-columns:120px 1fr;gap:22px;padding:26px 0;border-bottom:1px dashed var(--line);}
+.phase:last-of-type{border-bottom:none;}
+.phase .ph-id{position:relative;}
+.phase .ph-id .num{
+  font-family:'Instrument Serif',serif;font-size:54px;line-height:1;color:var(--lapacho);
+}
+.phase .ph-id .dur{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-top:4px;}
+.phase h3{font-size:20px;}
+.phase .goal{font-size:13px;font-weight:700;color:var(--rio);text-transform:uppercase;letter-spacing:.08em;margin:4px 0 10px;}
+.dlv{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.dlv span{
+  font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--ink);
+}
+.phase p{font-size:14.5px;color:var(--ink-soft);}
+@media(max-width:700px){.phase{grid-template-columns:1fr;gap:8px;}}
+
+/* ---------- DECISION (video) ---------- */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;}
+@media(max-width:860px){.vs{grid-template-columns:1fr;}}
+.vs .card{border-top:4px solid var(--line);}
+.vs .card.win{border-top-color:var(--rio);box-shadow:0 10px 28px rgba(28,110,120,.10);}
+.vs .card.lose{border-top-color:var(--lapacho);}
+.vs ul{list-style:none;margin-top:12px;}
+.vs li{font-size:14px;color:var(--ink-soft);padding-left:22px;position:relative;margin-bottom:8px;}
+.vs li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;}
+.vs .win li::before{background:var(--rio);}
+.vs .lose li::before{background:var(--lapacho);}
+.verdict{
+  margin-top:18px;background:var(--rio-soft);border:1px solid #C5DEE0;border-radius:14px;padding:20px 22px;
+  font-size:15px;color:#14525A;
+}
+.verdict b{color:#0E3F46;}
+
+/* ---------- PRICING ---------- */
+.price-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;margin-top:28px;}
+@media(max-width:860px){.price-grid{grid-template-columns:1fr;}}
+.price{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative;
+}
+.price.featured{
+  background:var(--navy);color:#EDE7DA;border-color:var(--navy);
+  box-shadow:0 18px 44px rgba(14,34,51,.22);
+}
+.price .pname{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--rio);}
+.price.featured .pname{color:#F08CA6;}
+.price .pval{font-family:'Instrument Serif',serif;font-size:44px;margin-top:8px;}
+.price .pval small{font-family:'Archivo';font-size:14px;color:var(--ink-soft);}
+.price.featured .pval small{color:#9FB0BA;}
+.price ul{list-style:none;margin-top:16px;}
+.price li{font-size:14px;padding:8px 0 8px 26px;position:relative;border-bottom:1px dashed rgba(128,128,128,.22);}
+.price li:last-child{border-bottom:none;}
+.price li::before{
+  content:"";position:absolute;left:0;top:13px;width:14px;height:14px;border-radius:50%;
+  background:var(--rio-soft);border:4px solid var(--rio);box-sizing:border-box;
+}
+.price.featured li::before{background:transparent;border-color:#F08CA6;}
+.badge-reco{
+  position:absolute;top:-13px;right:20px;background:var(--lapacho);color:#fff;font-size:11px;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:5px 14px;
+}
+.math{
+  margin-top:22px;background:var(--gold-soft);border:1px solid #E4D3A8;border-radius:14px;padding:20px 22px;font-size:14px;color:#6E5418;
+}
+.math b{color:#54400F;}
+.math table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13.5px;}
+.math td{padding:6px 4px;border-bottom:1px dashed #E0CD9E;}
+.math tr:last-child td{border-bottom:none;font-weight:700;}
+
+/* ---------- CLOSING ARGUMENTS ---------- */
+.argu{counter-reset:arg;display:grid;gap:14px;margin-top:26px;}
+.argu .card{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:flex-start;}
+.argu .card::before{
+  counter-increment:arg;content:counter(arg,decimal-leading-zero);
+  font-family:'Instrument Serif',serif;font-size:30px;color:var(--lapacho);line-height:1.1;
+}
+.argu .card p{margin-top:4px;}
+.argu .say{
+  margin-top:10px;font-size:14px;background:var(--paper);border-left:3px solid var(--lapacho);
+  padding:10px 14px;border-radius:0 10px 10px 0;color:var(--ink);font-style:italic;
+}
+
+/* ---------- CHECKLIST ---------- */
+.check{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;}
+@media(max-width:860px){.check{grid-template-columns:1fr;}}
+.check ul{list-style:none;margin-top:10px;}
+.check li{font-size:14px;color:var(--ink-soft);padding:7px 0 7px 26px;position:relative;}
+.check li::before{
+  content:"";position:absolute;left:0;top:11px;width:13px;height:13px;border-radius:4px;border:2px solid var(--rio);
+}
+
+/* ---------- FOOT ---------- */
+footer{background:var(--navy);color:#9FB0BA;padding:40px 0;font-size:13px;}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.limits{
+  margin-top:26px;border:1px dashed #CDB9B9;background:#FBF1F1;border-radius:14px;padding:20px 22px;font-size:13.5px;color:#7A4B4B;
+}
+.limits b{color:#5E3030;}
+svg text{font-family:'Archivo',sans-serif;}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-tags">
+      <span>Proposta comercial</span>
+      <span>M360 Brasil</span>
+      <span>Junho 2026</span>
+    </div>
+    <h1>A autoridade da M360, agora na tela do <em>empresário brasileiro.</em></h1>
+    <p class="sub">Proposta de posicionamento e presença digital para a operação brasileira da M360 Paraguay, consultora líder em projetos de investimento sediada em Assunção. Um plano em fases para transformar a força da matriz em referência no mercado que mais a procura.</p>
+    <div class="hero-meta">
+      <div><b>Preparado para</b>M360 Brasil</div>
+      <div><b>Preparado por</b>Mzen · Growth & Films</div>
+      <div><b>Escopo</b>Posicionamento digital Brasil</div>
+      <div><b>Validade</b>15 dias</div>
+    </div>
+  </div>
+  <svg class="bridge" viewBox="0 0 1440 290" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ponte ligando Brasil e Paraguai">
+    <rect x="0" y="238" width="1440" height="52" fill="#0A1822"/>
+    <path d="M0 244 Q120 238 240 244 T480 244 T720 244 T960 244 T1200 244 T1440 244" stroke="#1C6E78" stroke-width="1.4" opacity=".5"/>
+    <path d="M0 262 Q120 256 240 262 T480 262 T720 262 T960 262 T1200 262 T1440 262" stroke="#1C6E78" stroke-width="1.2" opacity=".3"/>
+    <path d="M0 290 L0 150 Q90 138 170 168 Q240 196 300 238 L300 290 Z" fill="#13354A"/>
+    <path d="M1440 290 L1440 150 Q1350 138 1270 168 Q1200 196 1140 238 L1140 290 Z" fill="#13354A"/>
+    <path d="M260 238 Q720 30 1180 238" stroke="#F4EFE6" stroke-width="3" fill="none"/>
+    <path d="M210 192 L1230 192" stroke="#F4EFE6" stroke-width="4"/>
+    <g stroke="#F4EFE6" stroke-width="1.4" opacity=".7">
+      <line x1="340" y1="208" x2="340" y2="192"/><line x1="420" y1="168" x2="420" y2="192"/>
+      <line x1="500" y1="136" x2="500" y2="192"/><line x1="580" y1="112" x2="580" y2="192"/>
+      <line x1="660" y1="98"  x2="660" y2="192"/><line x1="720" y1="94"  x2="720" y2="192"/>
+      <line x1="780" y1="98"  x2="780" y2="192"/><line x1="860" y1="112" x2="860" y2="192"/>
+      <line x1="940" y1="136" x2="940" y2="192"/><line x1="1020" y1="168" x2="1020" y2="192"/>
+      <line x1="1100" y1="208" x2="1100" y2="192"/>
+    </g>
+    <path class="route-dash" d="M150 192 L1290 192" stroke="#D8456B" stroke-width="2.6" fill="none"/>
+    <circle class="pulse" cx="150" cy="192" r="9" fill="#D8456B" opacity=".35"/>
+    <circle cx="150" cy="192" r="4.5" fill="#D8456B"/>
+    <circle class="pulse" cx="1290" cy="192" r="9" fill="#D8456B" opacity=".35"/>
+    <circle cx="1290" cy="192" r="4.5" fill="#D8456B"/>
+    <text x="150" y="170" fill="#9FB0BA" font-size="12" letter-spacing="2" text-anchor="middle">BRASIL</text>
+    <text x="1290" y="170" fill="#9FB0BA" font-size="12" letter-spacing="2" text-anchor="middle">PARAGUAI</text>
+    <text x="720" y="68" fill="#F08CA6" font-size="12" letter-spacing="3" text-anchor="middle">A PONTE DIGITAL ENTRE A M360 E O EMPRESÁRIO BRASILEIRO</text>
+  </svg>
+</header>
+
+<!-- ================= 01 CENÁRIO ================= -->
+<section id="cenario">
+  <div class="wrap">
+    <div class="eyebrow rio">01 · Leitura do cenário</div>
+    <h2>Uma marca forte em Assunção. Um <em>momento raro</em> no Brasil.</h2>
+    <p class="lead">A M360 Paraguay cobre o ciclo completo do investimento no país: jurídico, contábil, comércio exterior, regime de maquila, Lei 60/90, residência e formação de empresas. Poucas marcas chegam ao mercado brasileiro com esse lastro institucional.</p>
+
+    <div class="grid g3" style="margin-top:30px;">
+      <div class="card">
+        <div class="knum rio">360°</div>
+        <div class="klabel">Estrutura completa na matriz</div>
+        <p>Equipe multidisciplinar em Assunção, com casos industriais de porte e reconhecimento como excelente lugar para trabalhar. Um perfil institucional que se destaca no nicho.</p>
+      </div>
+      <div class="card">
+        <div class="knum gold">1%</div>
+        <div class="klabel">Imposto no regime Maquila</div>
+        <p>O serviço central da M360 responde exatamente ao que o empresário brasileiro mais busca hoje: operar com 1% sobre o valor agregado exportado, com segurança jurídica.</p>
+      </div>
+      <div class="card">
+        <div class="knum pink">1ª</div>
+        <div class="klabel">Posição de primeiro movimento</div>
+        <p>O canal brasileiro da M360 está pronto para ser ativado. A oportunidade: ser a primeira consultoria com matriz real em Assunção a ocupar o digital em português.</p>
+      </div>
+    </div>
+
+    <div class="strip">
+      <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+        <circle cx="27" cy="27" r="25" stroke="#F08CA6" stroke-width="2"/>
+        <path d="M27 14 V27 L36 33" stroke="#F08CA6" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h3>Por que agora: a janela de demanda está aberta</h3>
+        <p>O Paraguai vive um momento de validação pública para o empresário brasileiro: grau de investimento, crescimento acelerado do PIB, ampliação do regime de maquila para serviços e back office em abril de 2026, e casos de peso como a instalação da Lupo em Ciudad del Este. A marca que aparecer primeiro com autoridade institucional no feed do decisor brasileiro captura essa onda de busca. A M360 tem o lastro. O próximo passo é o canal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 OPORTUNIDADE ================= -->
+<section id="oportunidade">
+  <div class="wrap">
+    <div class="eyebrow">02 · A oportunidade</div>
+    <h2>Uma autoridade pronta para ser <em>apresentada ao Brasil</em></h2>
+    <p class="lead">A matriz já construiu o mais difícil: estrutura, casos e reputação. O que propomos é traduzir esses ativos para o público brasileiro, em português, com a consistência que uma marca institucional pede.</p>
+
+    <div class="diag">
+      <div class="diag-row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" stroke="#D8456B" stroke-width="1.8"/><path d="M6 10 L9 13 L14 7" stroke="#D8456B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h4>Canal a ativar</h4><p>Construir no Instagram a vitrine que a M360 merece: bio orientada ao público brasileiro, destaques estratégicos, identidade visual do feed e linha editorial definida. O perfil passa a contar a história da marca desde o primeiro toque.</p></div>
+      </div>
+      <div class="diag-row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#D8456B" stroke-width="1.8"/><path d="M10 6v4l3 2" stroke="#D8456B" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><h4>Autoridade a traduzir</h4><p>Casos reais, projetos industriais acompanhados pela matriz e reconhecimentos institucionais já existem em espanhol, na mídia paraguaia. Vamos transformá-los em conteúdo de prova social para o decisor brasileiro.</p></div>
+      </div>
+      <div class="diag-row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 16 L8 10 L12 13 L17 5" stroke="#D8456B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h4>Espaço de mercado aberto</h4><p>O nicho de internacionalização para o Paraguai já tem players ativos em conteúdo, mas nenhum reúne a combinação da M360: operação real em Assunção, base jurídica sólida e portfólio industrial. Há um espaço de liderança ainda sem dono.</p></div>
+      </div>
+      <div class="diag-row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2.5 L17 6 V11 C17 15 13.8 17 10 18 C6.2 17 3 15 3 11 V6 Z" stroke="#D8456B" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div><h4>Narrativa a liderar</h4><p>O tema Paraguai ainda carrega ruído no Brasil, entre promessas exageradas e informalidade. Uma comunicação própria, sóbria e tecnicamente precisa posiciona a M360 como a voz de confiança do segmento, em linha com seu perfil jurídico-institucional.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 MERCADO ================= -->
+<section id="mercado">
+  <div class="wrap">
+    <div class="eyebrow gold">03 · Leitura do mercado</div>
+    <h2>Quem já fala com o empresário brasileiro <em>sobre o Paraguai</em></h2>
+    <p class="lead">Mapeamos os principais players que produzem conteúdo para esse público. A leitura mostra um mercado aquecido e, ao mesmo tempo, um posicionamento que segue disponível: o da instituição com operação real dos dois lados da ponte.</p>
+
+    <div class="scroll-x">
+    <table class="comp">
+      <thead><tr><th>Player</th><th>Posicionamento</th><th>Como atrai</th><th>Limite do posicionamento</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>MaquilaParaguai.com.br</td>
+          <td>Especialista exclusivo em Lei de Maquila para empresas brasileiras.</td>
+          <td><span class="tagp a">SEO forte</span><span class="tagp b">Conteúdo educativo</span></td>
+          <td>Marca construída em torno de uma lei, sem o peso institucional de uma matriz local.</td>
+        </tr>
+        <tr>
+          <td>Panconsult</td>
+          <td>Assessoria completa de instalação, com acompanhamento a órgãos e condomínios industriais.</td>
+          <td><span class="tagp a">SEO</span><span class="tagp b">Imprensa</span></td>
+          <td>Comunicação de baixa frequência, com pouca presença em vídeo e redes sociais.</td>
+        </tr>
+        <tr>
+          <td>LB Consultoria 369</td>
+          <td>Marca pessoal de advogado, atendimento 100% online.</td>
+          <td><span class="tagp c">Marca pessoal</span><span class="tagp a">Blog/SEO atual</span></td>
+          <td>Centrada em uma única figura, sem estrutura demonstrável no Paraguai.</td>
+        </tr>
+        <tr>
+          <td>GPX Frontiers</td>
+          <td>Migração empresarial completa: empresa, residência fiscal e imóveis.</td>
+          <td><span class="tagp c">Funil digital</span><span class="tagp b">E-books, cursos, missões</span></td>
+          <td>Tom de infoproduto, distante do registro jurídico-institucional.</td>
+        </tr>
+        <tr>
+          <td>Empreender no Paraguai</td>
+          <td>Consultoria de fundador focada no regime de maquila.</td>
+          <td><span class="tagp c">Marca pessoal</span></td>
+          <td>Lastro institucional limitado frente a uma operação consolidada.</td>
+        </tr>
+        <tr>
+          <td>Comunidades de internacionalização</td>
+          <td>Missões internacionais e grupos fechados de empresários e advogados.</td>
+          <td><span class="tagp b">Comunidade</span><span class="tagp c">Eventos</span></td>
+          <td>Abordagem generalista: o Paraguai é um item do cardápio, não a tese central.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="card" style="margin-top:30px;padding:28px;">
+      <h3>O posicionamento que propomos para a M360</h3>
+      <svg viewBox="0 0 760 430" width="100%" role="img" aria-label="Mapa de posicionamento: autoridade institucional versus presença digital">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#3D5466"/></marker>
+        </defs>
+        <rect x="395" y="40" width="320" height="165" fill="#E2EFF0" rx="10" opacity=".55"/>
+        <text x="555" y="62" text-anchor="middle" font-size="11" fill="#1C6E78" font-weight="700" letter-spacing="1.5">ZONA DE LIDERANÇA</text>
+        <line x1="70" y1="370" x2="730" y2="370" stroke="#3D5466" stroke-width="1.6" marker-end="url(#arr)"/>
+        <line x1="70" y1="370" x2="70" y2="30" stroke="#3D5466" stroke-width="1.6" marker-end="url(#arr)"/>
+        <text x="400" y="402" text-anchor="middle" font-size="12.5" fill="#3D5466" font-weight="600">Presença digital em português →</text>
+        <text x="28" y="200" text-anchor="middle" font-size="12.5" fill="#3D5466" font-weight="600" transform="rotate(-90 28 200)">Autoridade institucional →</text>
+        <line x1="395" y1="370" x2="395" y2="40" stroke="#E3DCCF" stroke-width="1" stroke-dasharray="4 5"/>
+        <line x1="70" y1="205" x2="715" y2="205" stroke="#E3DCCF" stroke-width="1" stroke-dasharray="4 5"/>
+        <g font-size="12" fill="#3D5466">
+          <circle cx="520" cy="265" r="8" fill="#B9892F"/><text x="534" y="269">MaquilaParaguai</text>
+          <circle cx="470" cy="232" r="8" fill="#B9892F"/><text x="484" y="226">Panconsult</text>
+          <circle cx="575" cy="300" r="8" fill="#B9892F"/><text x="589" y="304">LB 369</text>
+          <circle cx="640" cy="330" r="8" fill="#B9892F"/><text x="560" y="350">GPX Frontiers</text>
+          <circle cx="455" cy="318" r="8" fill="#B9892F"/><text x="300" y="322">Empreender no PY</text>
+        </g>
+        <circle cx="120" cy="105" r="11" fill="#0E2233"/>
+        <text x="138" y="100" font-size="12.5" fill="#0F2433" font-weight="700">M360 hoje</text>
+        <text x="138" y="116" font-size="11" fill="#3D5466">autoridade alta · presença em construção</text>
+        <circle cx="625" cy="95" r="13" fill="#D8456B"/>
+        <circle cx="625" cy="95" r="20" fill="none" stroke="#D8456B" stroke-width="1.5" opacity=".4" class="pulse"/>
+        <text x="625" y="135" font-size="12.5" fill="#D8456B" font-weight="700" text-anchor="middle">M360 + Mzen</text>
+        <path class="route-dash" d="M138 105 C 320 60, 460 60, 605 92" stroke="#D8456B" stroke-width="2.4" fill="none"/>
+      </svg>
+      <p class="quad-note">A M360 já entra no mercado com o eixo mais difícil resolvido: autoridade institucional. O trabalho da Mzen é mover o ponto para a direita, construindo a presença em português que coloca a marca na zona de liderança, um espaço que nenhum player atual consegue alcançar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 PLANO EM FASES ================= -->
+<section id="fases">
+  <div class="wrap">
+    <div class="eyebrow rio">04 · O plano em fases</div>
+    <h2>Da fundação à liderança, <em>na ordem certa</em></h2>
+    <p class="lead">Uma marca institucional não se constrói com pressa, e sim com sequência. Cada fase prepara a seguinte, com entregáveis claros e resultados visíveis ao final de cada etapa.</p>
+
+    <div style="margin-top:18px;">
+      <div class="phase">
+        <div class="ph-id"><div class="num">F1</div><div class="dur">Dias 1 a 30 · Fundação</div></div>
+        <div>
+          <h3>Posicionamento & ativação do canal</h3>
+          <div class="goal">Resultado: um perfil à altura da marca</div>
+          <p>Diagnóstico aprofundado, definição do posicionamento para o público brasileiro e construção completa do perfil, com o primeiro estoque de conteúdo traduzindo os ativos da matriz: casos, regime de maquila, equipe e reconhecimentos.</p>
+          <div class="dlv">
+            <span>Bio + destaques + identidade do feed</span><span>Linha editorial com 4 pilares</span><span>12 conteúdos de fundação</span><span>Adaptação do kit da matriz ao público brasileiro</span><span>Setup de métricas</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="ph-id"><div class="num">F2</div><div class="dur">Meses 2 a 5 · Tração</div></div>
+        <div>
+          <h3>Ritmo editorial & prova social</h3>
+          <div class="goal">Resultado: referência de conteúdo sério sobre o Paraguai</div>
+          <p>Cadência mensal consistente com conteúdo que só a M360 pode produzir: bastidores reais de Assunção, casos com números e respostas técnicas às dúvidas que o mercado evita. Relatório mensal de uma página, pronto para apresentação à matriz.</p>
+          <div class="dlv">
+            <span>12 a 16 posts/mês</span><span>4 Reels/mês (roteiro + edição)</span><span>Calendário editorial</span><span>Relatório mensal de 1 página</span><span>Reunião mensal de estratégia</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="ph-id"><div class="num">F3</div><div class="dur">Mês 4 em diante · Aceleração</div></div>
+        <div>
+          <h3>Demanda & eventos</h3>
+          <div class="goal">Resultado: audiência convertida em pipeline de reuniões</div>
+          <p>Com a base construída, entram os aceleradores: tráfego pago para captação de leads, materiais ricos para o empresário brasileiro e presença nos eventos do circuito de comércio exterior e indústria.</p>
+          <div class="dlv">
+            <span>Gestão de tráfego (serviço adicional)</span><span>Landing + captação de leads</span><span>Cobertura audiovisual de eventos pela Mzen Films (orçada por evento)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 INVESTIMENTO ================= -->
+<section id="investimento">
+  <div class="wrap">
+    <div class="eyebrow gold">05 · Investimento</div>
+    <h2>Dois movimentos, <em>risco controlado</em></h2>
+    <p class="lead">A proposta começa com um projeto fechado, de escopo e prazo definidos. Ao final dos 30 dias, com o perfil ativo e a estratégia validada, iniciamos o ritmo de cruzeiro.</p>
+
+    <div class="price-grid">
+      <div class="price">
+        <div class="pname">Movimento 1 · Fase de Fundação</div>
+        <div class="pval">R$ 3.500 <small>· projeto único · 30 dias</small></div>
+        <ul>
+          <li>Diagnóstico completo + posicionamento Brasil</li>
+          <li>Construção do perfil: bio, destaques, identidade do feed</li>
+          <li>12 conteúdos de fundação + adaptação do kit da matriz</li>
+          <li>Linha editorial com 4 pilares, aprovada em conjunto</li>
+          <li>Apresentação de encerramento com plano da fase seguinte</li>
+        </ul>
+      </div>
+      <div class="price featured">
+        <div class="badge-reco">Plano recomendado</div>
+        <div class="pname">Movimento 2 · Retainer Autoridade M360</div>
+        <div class="pval">R$ 3.800<small>/mês · ciclo inicial de 4 meses</small></div>
+        <ul>
+          <li>12 a 16 posts/mês com design e copy</li>
+          <li>4 Reels/mês: roteiro, edição e legendagem</li>
+          <li>Gestão do canal + calendário editorial</li>
+          <li>Relatório mensal de 1 página, pronto para a matriz</li>
+          <li>Reunião mensal de estratégia</li>
+          <li>Aceleradores da Fase 3 orçados como serviços adicionais</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 POR QUE ================= -->
+<section id="porque">
+  <div class="wrap">
+    <div class="eyebrow">06 · Por que agora, por que juntas</div>
+    <h2>O que esta parceria <em>destrava</em></h2>
+
+    <div class="argu">
+      <div class="card"><div>
+        <h3>O espaço de liderança será ocupado em 2026</h3>
+        <p>A busca do empresário brasileiro por internacionalização via Paraguai cresce a cada trimestre. A marca que se posicionar primeiro com autoridade institucional vira a referência natural dessa onda, e referências, uma vez estabelecidas, são difíceis de deslocar.</p>
+      </div></div>
+      <div class="card"><div>
+        <h3>A janela regulatória favorece quem comunica primeiro</h3>
+        <p>A ampliação do regime de maquila para serviços e back office, em abril de 2026, abre um público inteiramente novo: empresas de tecnologia e serviços que ainda não têm fornecedor de referência. Os próximos 90 dias de conteúdo definem quem ocupa esse espaço.</p>
+      </div></div>
+      <div class="card"><div>
+        <h3>O primeiro passo é um projeto fechado, com entregável visível</h3>
+        <p>A Fase de Fundação tem escopo, prazo e investimento definidos. Em 30 dias, o perfil se torna um cartão de visita à altura da matriz, e a decisão sobre o ritmo seguinte é tomada com resultados na mesa.</p>
+      </div></div>
+      <div class="card"><div>
+        <h3>Uma agência que já fala a língua do setor</h3>
+        <p>A Mzen é especializada no setor de comércio exterior brasileiro, com presença nos principais eventos do circuito (Intermodal, Procomex, WCO/OMA), método próprio de diagnóstico e braço audiovisual dedicado. Conteúdo técnico sobre regimes aduaneiros especiais é o nosso dia a dia, não um aprendizado em andamento.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 PRÓXIMOS PASSOS ================= -->
+<section id="proximos">
+  <div class="wrap">
+    <div class="eyebrow rio">07 · Próximos passos</div>
+    <h2>Do aceite ao perfil no ar em <em>30 dias</em></h2>
+
+    <div class="grid g3" style="margin-top:26px;">
+      <div class="card">
+        <div class="knum rio">1</div>
+        <div class="klabel">Aceite & kickoff</div>
+        <p>Aprovação da proposta, reunião de kickoff e acesso ao kit de marketing da matriz para iniciar a adaptação ao público brasileiro.</p>
+      </div>
+      <div class="card">
+        <div class="knum rio">2</div>
+        <div class="klabel">Fundação em execução</div>
+        <p>Diagnóstico, posicionamento e construção do perfil com os 12 conteúdos de fundação, em ciclo de 30 dias com aprovações em conjunto.</p>
+      </div>
+      <div class="card">
+        <div class="knum rio">3</div>
+        <div class="klabel">Apresentação & ritmo de cruzeiro</div>
+        <p>Entrega da fase com resultados e plano editorial validado, e início do Retainer Autoridade M360 para os meses seguintes.</p>
+      </div>
+    </div>
+
+    <div class="strip" style="margin-top:26px;">
+      <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+        <path d="M9 28 L22 41 L45 14" stroke="#F08CA6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h3>Compromisso da Mzen</h3>
+        <p>Comunicação sóbria, tecnicamente precisa e fiel ao posicionamento jurídico-institucional da M360. Cada conteúdo passa por validação antes de ir ao ar, e cada mês fecha com relatório claro do que foi feito e do que vem a seguir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#F4EFE6;">Mzen · Growth & Films</b> · Proposta para M360 Brasil · Junho 2026</div>
+    <div>Proposta válida por 15 dias a partir da apresentação</div>
+  </div>
+</footer>
+</body>
+</html>
